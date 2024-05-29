@@ -1,11 +1,19 @@
-import Head from "next/head";
-import Image from "next/image";
+import { ShowMoreButton } from "@/components/ShowMoreButton";
+import { Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+import Head from "next/head";
+import Link from "next/link";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [showDesc, setShowDesc] = useState(false);
+
+  const toggleSetShowDesc = () => {
+    setShowDesc(!showDesc);
+  };
+
   return (
     <>
       <Head>
@@ -14,101 +22,85 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{" "}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+      <Flex
+        direction={"column"}
+        bg="#FDFFAB"
+        h="100vh"
+        w="100vw"
+        align="center"
+        p="5%"
+        gap="10"
+      >
+        <Flex direction={"column"} align={"center"}>
+          <Heading>Girassóis</Heading>
+          <Text fontSize={"24px"} textAlign={"center"}>
+            Um estudo sobre anatomia e atividades reprodutivas
+          </Text>
+        </Flex>
+        <Image
+          src="https://jardim.info/sites/default/files/imagens/plantas/girassol/girassol001.jpg"
+          alt="girassol"
+          borderRadius={"50%"}
+          w="200px"
+          h="200px"
+          objectFit={"cover"}
+        />
+        <Flex
+          transform="all 0.4s"
+          maxW="100ch"
+          direction={"column"}
+          align={"center"}
+          wordBreak="break-word"
+          maxH={showDesc ? "100%" : "100px"}
+          position="relative"
+          textOverflow="ellipsis"
+          display={showDesc ? "inherit" : "-webkit-box"}
+          overflow={showDesc ? "initial" : "hidden"}
+          style={{
+            WebkitLineClamp: showDesc ? "inherit" : "3",
+            WebkitBoxOrient: "vertical",
+          }}
+        >
+          <Text textAlign="justify">
+            O girassol (Helianthus annuus Linnaeus) é uma planta conhecida por
+            sua impressionante inflorescência em amarelo e seu movimento de
+            “seguir” o sol ao longo do dia durante sua fase de crescimento.
+            Essas características fundamentam o simbolismo associado à alegria e
+            vitalidade que o girassol representa, tornando-o uma planta
+            apreciada em diversas culturas. Originário das Américas, atualmente
+            o girassol é cultivado em todo o mundo devido às suas diversas
+            aplicações. Suas sementes são usadas na produção de óleo de
+            girassol, comumente utilizado na culinária, e como fonte de alimento
+            para humanos e outros animais. O néctar presente nas flores atrai
+            polinizadores e é utilizado na produção de mel. Seu potencial como
+            biocombustível tem impulsionado o aumento de áreas cultivadas. Além
+            disso, o girassol também tem aplicações ornamentais em paisagismo.
+          </Text>
+          <Text textAlign="justify">
+            O girassol é uma planta nativa da América. Recentemente, fósseis de
+            um girassol ancestral coletado na Argentina apontaram para uma
+            provável origem do girassol na América do Sul há 47,5 milhões de
+            anos. Por sua vez, a domesticação do girassol é principalmente
+            atribuída à América do Norte. Trabalhos em arqueologia indicam que
+            os povos indígenas norte-americanos cultivavam e domesticavam o
+            girassol há milhares de anos (cerca de 3.000 anos a.C.) para uma
+            variedade de finalidades, como a obtenção de sementes comestíveis,
+            extração de óleo comestível e usos cerimoniais. Com a colonização
+            europeia das Américas, os girassóis foram levados para a Europa no
+            século XVI, onde encantaram as pessoas com sua beleza ornamental. A
+            planta se espalhou pela Europa e outras partes do mundo, sendo
+            cultivado em diversas regiões do planeta, não apenas por suas
+            sementes comestíveis e óleo, mas também como uma planta ornamental
+            em jardins e como cultura comercial em áreas agrícolas. No Brasil, o
+            cultivo remonta ao século 19, na região Sul, tendo sido trazido por
+            colonizadores europeus, que consumiam suas sementes torradas sob a
+            forma de chá.
+          </Text>
+        </Flex>
+        <Link href={"/love"}>
+          <ShowMoreButton handleSetShow={toggleSetShowDesc} show={showDesc} />
+        </Link>
+      </Flex>
     </>
   );
 }
