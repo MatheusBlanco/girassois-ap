@@ -57,14 +57,14 @@ export default function Love() {
           height: size,
           position: "relative",
           display: "grid",
-          "grid-template-columns": "repeat(4, minmax(100px, 1fr))",
-          "grid-gap": "25px",
+          gridTemplateColumns: "repeat(4, minmax(100px, 1fr))",
+          gridGap: "25px",
           padding: "25px",
           background: "white",
           borderRadius: "5px",
           cursor: "pointer",
           boxShadow: "0px 10px 10px -5px rgba(0, 0, 0, 0.05)",
-          "will-change": "width, height",
+          willChange: "width, height",
         }}
         onClick={() => set((open) => !open)}
       >
@@ -73,9 +73,8 @@ export default function Love() {
             style={{
               width: "100%",
               height: "100%",
-              background: "#FF69B4",
               borderRadius: "5px",
-              "will-change": "transform, opacity",
+              willChange: "transform, opacity",
               background: item.css,
             }}
           />
