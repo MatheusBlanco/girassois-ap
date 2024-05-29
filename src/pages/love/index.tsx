@@ -76,8 +76,8 @@ export default function Love() {
               background: "#FF69B4",
               borderRadius: "5px",
               "will-change": "transform, opacity",
+              background: item.css,
             }}
-            style={{ ...style, background: item.css }}
           />
         ))}
       </animated.div>{" "}
