@@ -1,8 +1,7 @@
 .trailsText {
   position: relative;
   width: 100%;
-  height: 80px;
-  line-height: 80px;
+  line-height: 50px;
   color: black;
   font-size: 30px;
   font-weight: 800;
@@ -15,6 +14,8 @@
 .trailsText > div {
   padding-right: 0.05em;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {

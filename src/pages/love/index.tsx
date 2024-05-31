@@ -31,11 +31,13 @@ const Trail: React.FC<{ open: boolean; children: React.ReactNode }> = ({
   });
   return (
     <div>
-      {trail.map(({ height, ...style }, index) => (
-        <a.div key={index} className={styles.trailsText} style={style}>
-          <a.div style={{ height }}>{items[index]}</a.div>
-        </a.div>
-      ))}
+      {trail.map(({ height, ...style }, index) => {
+        return (
+          <a.div key={index} className={styles.trailsText} style={style}>
+            <a.div style={{}}>{items[index]}</a.div>
+          </a.div>
+        );
+      })}
     </div>
   );
 };
@@ -79,7 +81,16 @@ export default function Love() {
           css: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
           text: (
             <Trail open={openText === 1}>
-              <Text>Texto de oi nenem</Text>
+              <Text>Oi Marina</Text>
+              <Text>Criei esse site de Girassóis</Text>
+              <Text>pra você achar que não era nada sério</Text>{" "}
+              <Text>KKKKKKKKKKKK</Text>{" "}
+              <Image
+                src={
+                  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcAr7sJK1xlU9OZGBFFUsdQ7_OxUSoJhWs1m-s8WGHmLr3htAoqe5DQQk8s1vOxppfZSmBbQqnfnU2T5onC60cJjPr1GTAEB3ykSpO8VtmjU8FOe_3c2XzGI7pRYJgx8-4C2YVXEu_xpO8/s1600/pegadinha.jpg"
+                }
+                alt=""
+              />
             </Trail>
           ),
         };
@@ -88,7 +99,11 @@ export default function Love() {
           css: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
           text: (
             <Trail open={openText === 2}>
-              <Text>Texto de te amo</Text>
+              <Text>Mas falando sério agora</Text>{" "}
+              <Text>Queria fazer algo especial para demonstrar que te amo</Text>{" "}
+              <Text>
+                Aí fiz este site. Ficou simples, mas foi feito com amor
+              </Text>
             </Trail>
           ),
         };
@@ -97,8 +112,13 @@ export default function Love() {
           css: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
           text: (
             <Trail open={openText === 3}>
-              <Text>Texto de todos os momentos</Text>
-              <Text>com voce foram mt especiais</Text>
+              <Text>Porque você se tornou alguém muito especial para mim</Text>
+              <Text>
+                Eu sei que não sou bom em demonstrar meus sentimentos, mas de
+                pouco em pouco você tem me tirado cada vez mais da minha
+                caixinha e me expondo pro mundo
+              </Text>
+              <Text>E por isso eu sou muito grato</Text>
             </Trail>
           ),
         };
@@ -107,8 +127,15 @@ export default function Love() {
           css: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
           text: (
             <Trail open={openText === 4}>
-              <Text>Texto de quero viver </Text>
-              <Text>mais momentos com vc</Text>
+              <Text>
+                Eu amo como você é capaz de demonstrar seu afeto, todo o carinho
+                que você tem e demonstra, suas esquisitices e jeitinhos, que eu
+                acho extremamente charmosos e fofos
+              </Text>
+              <Text>
+                Todos os momentos com você foram mais do que especiais, e tenho
+                certeza que os futuros serão tão especiais quanto, ou mais
+              </Text>
             </Trail>
           ),
         };
@@ -118,7 +145,8 @@ export default function Love() {
           text: (
             <>
               <Trail open={true}>
-                <Text>Quer me namorar?</Text>{" "}
+                <Text>Mas não quero mais ser seu ficante</Text>{" "}
+                <Text>Quer namorar comigo?</Text>{" "}
                 <Flex align="center" gap={"4"}>
                   <animated.div
                     style={{
